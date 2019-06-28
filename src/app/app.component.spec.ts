@@ -91,7 +91,7 @@ fdescribe('AppComponent', () => {
 //for delete text
   it(`should get the spanish language data when the language set to spanish'`, () => {
     const langObject = service.getLangObject('sp');
-    expect(langObject.DELETE).toEqual('Borrar');
+    expect(langObject.ITEMS).toEqual('Artículos');
   });
   // for title
   it(`should get the spanish language data when the language set to spanish'`, () => {
