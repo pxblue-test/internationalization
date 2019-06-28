@@ -1,0 +1,10 @@
+export const MENU_ITEMS = ['Home', 'Projects', 'Warnings', 'Settings', 'Help']
+export const FRUIT_LIST = ['Apple', 'Banana', 'Grape', 'Orange', 'Guava', 'Coconut', 'Lemon', 'Pineapple', 'Watermelon']
+export const DROPDOWN_LANGS = ['English', 'Spanish', 'German', 'Arabic']
+export const ADD_TO_CART = 'Add to Cart'
+export const MORE_INFO = 'More information'
+export const DELETE = 'Delete'
+export const I18N = 'Internationalization'
+export const BLUE = 'Blue'
+export const DIR = 'ltr';
+export const drawerAnchor = 'left';

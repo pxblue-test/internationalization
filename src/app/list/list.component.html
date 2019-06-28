@@ -1,0 +1,53 @@
+
+<mat-toolbar color="primary" >
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="onMenuClicked()" style="margin-left:-4px; margin-right: 12px">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+    <div>{{langObject.I18N}}</div>
+    <div fxFlex style="margin:auto;"></div>
+  </mat-toolbar>
+  
+  
+  <!-- secondary toolbar -->
+  <mat-toolbar class="secondary-toolbar">
+    <mat-form-field>
+    <mat-select (ngModelChange)="onLanguageSelection($event)" [(ngModel)]="selectedLanguage">
+      <mat-option *ngFor="let lang of langObject.DROPDOWN_LANGS; let i = index" [value]="languages[i]">
+        {{lang}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+   <button  mat-raised-button color="primary" style="margin: 20px;" >
+     <mat-icon [ngStyle]="langObject?.iconStyle">shopping_cart</mat-icon> {{langObject.ADD_TO_CART}}
+   </button>
+    <div fxFlex style="margin:auto;"></div>
+  </mat-toolbar>
+  
+  <!-- list of items -->
+  <mat-nav-list>
+    <mat-list-item *ngFor="let item of langObject.FRUIT_LIST; let i = index">
+      <mat-checkbox mat-list-icon [checked]="isSelected(i)" (change)="onSelected(i)"></mat-checkbox>
+        <div mat-line>
+        {{item}}
+      </div>
+      <div mat-line class="list">
+        {{langObject.MORE_INFO}}
+      </div>
+      <mat-icon [ngStyle]="langObject?.iconStyle" class="icon">navigate_next</mat-icon>
+    </mat-list-item>
+  </mat-nav-list>
+  
+  
+  <!-- bottomsheet -->
+  <footer [class.active]="selectedItems.length>0" class="mat-simple-snackbar" fxLayout="row">
+    <p>{{langObject.DELETE}} {{selectedItems.length}} </p>
+    <div class="icon">
+      <button mat-icon-button (click)="cancelItems()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+  </footer>
+  
