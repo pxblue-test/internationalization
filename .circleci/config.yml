@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/form-validation
+    working_directory: ~/internationalization
     docker:
       - image: circleci/node:10.16.0-browsers
     steps:
@@ -27,4 +27,3 @@ jobs:
           prefix: tests
       - store_test_results:
           path: test-results
-     
