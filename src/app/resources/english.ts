@@ -6,5 +6,4 @@ export const MORE_INFO = 'More information'
 export const ITEMS = 'Items'
 export const I18N = 'Internationalization'
 export const BLUE = 'Blue'
-export const DIR = 'ltr';
-export const drawerAnchor = 'left';
+

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation} from '@angular/core';
+import { Component} from '@angular/core';
 import { LanguageTranslateService } from './shared/language-translate.service';
 import { BaseComponent } from './shared/base.component';
 
@@ -6,7 +6,7 @@ import { BaseComponent } from './shared/base.component';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+
 })
 export class AppComponent extends BaseComponent{
   open = false; // is the nav menu open

@@ -6,4 +6,4 @@ export const MORE_INFO = 'مزيد من المعلومات';
 export const ITEMS = 'العناصر';
 export const I18N = 'تدويل';
 export const BLUE = 'أزرق';
-export const DIR = 'rtl';
+
