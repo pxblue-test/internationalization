@@ -10,7 +10,7 @@ import { BaseComponent } from './base.component';
 export class AppComponent extends BaseComponent{
   open = false; // is the nav menu open
   userMenu = false; // toggles menu mode on mobile
-  menuIcons = [ 'move_to_inbox', 'folder', 'report', 'settings', 'help' ];
+  menuIcons = [ 'home', 'folder', 'report', 'settings', 'help' ];
 
   constructor(
     public languageTranslateService:LanguageTranslateService

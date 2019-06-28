@@ -18,7 +18,7 @@
         <div class="navWrapper">
           <section *ngIf="!userMenu" fxLayout="column">
             <a mat-list-item *ngFor="let item of langObject.MENU_ITEMS; let i = index" (click)="toggleMenu()">
-              <mat-icon matListIcon class="nav-icon">{{menuIcons[i]}}</mat-icon>
+              <mat-icon matListIcon class="icon">{{menuIcons[i]}}</mat-icon>
               <span>{{item}}</span>
             </a>
           </section>
