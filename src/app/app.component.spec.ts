@@ -22,7 +22,7 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 import { LanguageTranslateService } from './shared/language-translate.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BaseComponent } from './base.component';
+
 
 fdescribe('AppComponent', () => {
   let service;

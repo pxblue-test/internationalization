@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { LanguageTranslateService } from '../shared/language-translate.service';
-import { BaseComponent } from '../base.component';
+import { BaseComponent } from '../shared/base.component';
 
 @Component({
   selector: 'list-selection-example',
   styleUrls: ['list.component.scss'],
   templateUrl: 'list.component.html',
-  // encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class ListSelectionExample extends BaseComponent{
   data: any[] = [];

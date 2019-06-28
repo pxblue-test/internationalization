@@ -8,8 +8,3 @@ export const I18N = 'Internacionalización'
 export const BLUE = 'Blue'
 export const DIR = 'ltr';
 export const drawerAnchor = 'left';
-export const iconStyle = {
-            fontSize:'16',
-            margin: '5px'
-
-          }

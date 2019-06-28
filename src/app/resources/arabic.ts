@@ -7,14 +7,3 @@ export const ITEMS = 'العناصر';
 export const I18N = 'تدويل';
 export const BLUE = 'أزرق';
 export const DIR = 'rtl';
-export const listStyle = {
-            textAlign: 'right',
-        };
-export const iconStyle = {
-            transform: 'scaleX(-1)', 
-          }
-export const footerStyle = {
-            paddingRight: '32px',
-            paddingLeft: '4px'
-}
-export const drawerAnchor = 'right';
