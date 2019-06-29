@@ -1,4 +1,4 @@
-# Basic internationalization Example
+# Internationalization Example
 
 [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/angular.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/angular)
 
