@@ -1,6 +1,6 @@
 # Basic internationalization Example
 
-[![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/react.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/react)
+[![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/angular.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/angular)
 
 This is a sample application showing how to switch between the different languages including the languages that are right to left.
 

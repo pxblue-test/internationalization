@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LayoutModule } from "@angular/cdk/layout";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
-   
     MatBottomSheetModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -16,15 +15,13 @@ import {
     MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
-
-   
 } from "@angular/material";
 
 import { AppComponent } from './app.component';
 import {ListSelectionExample} from './list/list.component';
 
 import { LanguageTranslateService } from './shared/language-translate.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ListSelectionExample],

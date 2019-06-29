@@ -13,14 +13,15 @@ export class LanguageTranslateService {
   
   getLangObject(lang) {
     switch(lang){
-      case 'en': 
-        return EnglishStrings;
       case 'ge':
         return GermanStrings;
       case 'ar':
         return ArabicStrings;
       case 'sp':
         return SpanishStrings;
+      case 'en': 
+      default:
+        return EnglishStrings;
     }
   }
 }

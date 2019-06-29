@@ -24,7 +24,7 @@ import { LanguageTranslateService } from './shared/language-translate.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
   let service;
   let fixture;
   let component;
@@ -79,20 +79,23 @@ fdescribe('AppComponent', () => {
     expect(component.open).toBeFalsy();
   });
 
-  it('toggleMenu maken "open" to true', () => {
+  it('toggleMenu make "open" to true', () => {
     component.toggleMenu();
     expect(component.open).toBeTruthy();
   });
-// for add to cart text 
+  
+  // for add to cart text 
   it(`should get the German language data when the language set to german'`, () => {
     const langObject = service.getLangObject('ge');
     expect(langObject.ADD_TO_CART).toEqual('In den Einkaufswagen');
   });
-//for delete text
+
+  //for delete text
   it(`should get the spanish language data when the language set to spanish'`, () => {
     const langObject = service.getLangObject('sp');
     expect(langObject.ITEMS).toEqual('Artículos');
   });
+
   // for title
   it(`should get the spanish language data when the language set to spanish'`, () => {
     const langObject = service.getLangObject('en');

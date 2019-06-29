@@ -9,11 +9,13 @@ export abstract class BaseComponent {
   constructor(public languageTranslateService:LanguageTranslateService) {
     this.languageTranslateService.currentLang.subscribe(lang => {
       const body = document.querySelector('body');
-      body.setAttribute('dir', lang === 'ar' ? 'rtl': 'ltr');
+      body.setAttribute('dir', this._isRTL(lang) ? 'rtl': 'ltr');
       this.langObject = this.languageTranslateService.getLangObject(lang);
     });
   }
-
+  _isRTL(lang){
+    return lang === 'ar';
+  }
   ngOnInit(){
     this.languageTranslateService.setLang('en');
   }
