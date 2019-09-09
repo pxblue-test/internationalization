@@ -1,4 +1,4 @@
-@import '~@pxblue/colors/palette.scss';
+@import '~@pxblue/colors/palette';
 .app-container{
   height: 100%;
   width: 100%;
@@ -13,9 +13,9 @@
 }
 
 .navWrapper{
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  flex: 1 1 0px; 
+  flex: 1 1 0px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -28,4 +28,4 @@ section{
 [matSubheader]{
   white-space: nowrap;
 }
- 
+
