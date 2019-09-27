@@ -3,10 +3,10 @@ This project demonstrates how to switch between the different languages includin
 
 | Framework           | Status       | Live Examples  |
 | ---------------- |--------------|------------------|
-| Angular | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/angular.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/angular) | [View on Stackblitz](https://stackblitz.com/edit/pxblue-internationalization-angular)
-| React | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/react.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/react) | [View on Stackblitz](https://stackblitz.com/edit/pxblue-internationalization-react)
-| Ionic | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/ionic.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/ionic) | [View on Stackblitz](https://stackblitz.com/edit/pxblue-internationalization-ionic)
-| React Native | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/reactnative.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/reactnative) | [View on Snack](https://snack.expo.io/@px-blue/internationalization-reactnative)
+| Angular | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/angular.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/angular) | [View on Stackblitz](https://stackblitz.com/github/pxblue/internationalization/tree/angular)
+| React | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/react.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/react) | [View on Code Sandbox](https://codesandbox.io/s/github/pxblue/internationalization/tree/react)
+| Ionic | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/ionic.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/ionic) | [View on Stackblitz](https://stackblitz.com/github/pxblue/internationalization/tree/ionic)
+| React Native | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/reactnative.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/reactnative) | [View on Snack](https://snack.expo.io/@git/github.com/pxblue/internationalization@reactnative)
 
 ## Running the Example
 ### Angular
@@ -33,6 +33,7 @@ yarn && ionic serve
 ```
 To run on a device, add the platform then build and run the project:
 ```
+ionic cordova resources
 ionic cordova platform add [android|ios]
 ionic cordova build [android|ios]
 ionic cordova run [android|ios]
