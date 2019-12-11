@@ -6,7 +6,7 @@ This project demonstrates how to switch between the different languages includin
 | Angular | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/angular.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/angular) | [View on Stackblitz](https://stackblitz.com/github/pxblue/internationalization/tree/angular)
 | React | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/react.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/react) | [View on Code Sandbox](https://codesandbox.io/s/github/pxblue/internationalization/tree/react)
 | Ionic | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/ionic.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/ionic) | [View on Stackblitz](https://stackblitz.com/github/pxblue/internationalization/tree/ionic)
-| React Native | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/reactnative.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/reactnative) | [View on Snack](https://snack.expo.io/@git/github.com/pxblue/internationalization@reactnative)
+| React Native | [![CircleCI](https://circleci.com/gh/pxblue/internationalization/tree/reactnative.svg?style=shield)](https://circleci.com/gh/pxblue/internationalization/tree/reactnative) | [View on Snack](https://snack.expo.io/@git/github.com/pxblue/internationalization@reactnative?preview=true&platform=ios)
 
 ## Running the Example
 ### Angular
