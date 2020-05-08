@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import {
-    AppBar,
+    AppBar, Button,
     Checkbox,
     IconButton,
     List,
@@ -13,6 +13,8 @@ import {
     Toolbar,
     Typography,
 } from '@material-ui/core';
+import CartIcon from '@material-ui/icons/ShoppingCart'
+
 
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -86,6 +88,10 @@ export const App: React.FC = () => {
                     <MenuItem value={'de'}>{t('LANGUAGES.GERMAN')}</MenuItem>
                     <MenuItem value={'ar'}>{t('LANGUAGES.ARABIC')}</MenuItem>
                 </Select>
+                <Button variant="contained" color="primary" style={{ margin: '10px', textTransform: 'none' }}>
+                    <CartIcon className={classes.icon} style={_isRTL() ? { transform: 'scaleX(-1)' } : null} />
+                    <Typography noWrap color="inherit" > {t("ADD_TO_CART")} </Typography>
+                </Button>
             </Toolbar>
 
             <List>
