@@ -1,4 +1,4 @@
-import {TranslationSet} from "./translation-type";
+import { TranslationSet } from './translation-type';
 
 export const arabic: TranslationSet = {
     translations: {
@@ -11,18 +11,18 @@ export const arabic: TranslationSet = {
             COCONUT: 'عنب',
             LEMON: 'ليمون',
             PINEAPPLE: 'أناناس',
-            WATERMELLON: 'البطيخ'
+            WATERMELLON: 'البطيخ',
         },
         LANGUAGES: {
             ENGLISH: 'الإنجليزية',
             SPANISH: 'الأسبانية',
             GERMAN: 'ألمانية',
-            ARABIC: 'عربى'
+            ARABIC: 'عربى',
         },
-        ADD_TO_CART : 'أضف إلى العربة',
-        MORE_INFO : 'مزيد من المعلومات',
-        ITEMS : 'عناصر',
-        I18N : 'تدويل',
-        BLUE : 'أزرق'
-    }
+        ADD_TO_CART: 'أضف إلى العربة',
+        MORE_INFO: 'مزيد من المعلومات',
+        ITEMS: 'عناصر',
+        I18N: 'تدويل',
+        BLUE: 'أزرق',
+    },
 };

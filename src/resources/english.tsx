@@ -1,4 +1,4 @@
-import {TranslationSet} from "./translation-type";
+import { TranslationSet } from './translation-type';
 
 export const english: any = {
     translations: {
@@ -11,18 +11,18 @@ export const english: any = {
             COCONUT: 'Coconut',
             LEMON: 'Lemon',
             PINEAPPLE: 'Pineapple',
-            WATERMELLON: 'Watermellon'
+            WATERMELLON: 'Watermellon',
         },
         LANGUAGES: {
             ENGLISH: 'English',
             SPANISH: 'Spanish',
             GERMAN: 'German',
-            ARABIC: 'Arabic'
+            ARABIC: 'Arabic',
         },
         ADD_TO_CART: 'Add to Cart',
         MORE_INFO: 'More information',
         ITEMS: 'Items',
         I18N: 'Internationalization',
         BLUE: 'Blue',
-    }
+    },
 };

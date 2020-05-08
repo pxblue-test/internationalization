@@ -17,16 +17,20 @@
     "typeface-noto-sans": "^0.0.72",
     "typeface-open-sans": "^0.0.54"
   },
+  "prettier": "@pxblue/prettier-config",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
   },
   "devDependencies": {
+    "@pxblue/prettier-config": "^1.0.2",
     "@types/react-dom": "^16.9.7",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "prettier": "^2.0.5",
     "react-scripts": "^3.1.1",
     "react-test-renderer": "^16.8.6",
     "typescript": "^3.7.2"

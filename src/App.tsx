@@ -1,46 +1,45 @@
-import React, {useState} from 'react';
-import { useTranslation, Trans } from "react-i18next";
+import React, { useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import {
     AppBar,
     Checkbox,
     IconButton,
     List,
-    ListItem, ListItemIcon,
+    ListItem,
+    ListItemIcon,
     ListItemText,
     MenuItem,
     Select,
     Toolbar,
-    Typography
-} from "@material-ui/core";
-
+    Typography,
+} from '@material-ui/core';
 
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import CancelIcon from '@material-ui/icons/Cancel';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {makeStyles, useTheme} from "@material-ui/styles";
+import { makeStyles, useTheme } from '@material-ui/styles';
 import * as Colors from '@pxblue/colors';
-import {english} from "./resources/english";
-
+import { english } from './resources/english';
 
 const useStyles = makeStyles(() => ({
-    header:{
+    header: {
         height: '180px',
         color: 'white',
         background: Colors.blue[500],
         padding: '16px',
     },
-    icon:{
-        fontSize:'16px',
-        margin: '5px'
+    icon: {
+        fontSize: '16px',
+        margin: '5px',
     },
-    listItem:{
+    listItem: {
         paddingLeft: '15px',
         height: '50px',
         paddingRight: '15px',
-        '&:hover':{
-            backgroundColor: 'rgba(0, 0, 0, 0.08)'
-        }
-    }
+        '&:hover': {
+            backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        },
+    },
 }));
 
 export const App: React.FC = () => {
@@ -51,7 +50,7 @@ export const App: React.FC = () => {
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
     const [lang, setLang] = useState('en');
 
-    const changeLanguage = lng => {
+    const changeLanguage = (lng) => {
         setLang(lng);
         i18n.changeLanguage(lng);
     };
@@ -65,11 +64,11 @@ export const App: React.FC = () => {
     const _isRTL = () => lang === 'ar';
 
     return (
-        <div dir={_isRTL() ? 'rtl' : 'ltr'} >
+        <div dir={_isRTL() ? 'rtl' : 'ltr'}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" color="inherit" >
-                        {t("I18N")}
+                    <Typography variant="h6" color="inherit">
+                        {t('I18N')}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -77,42 +76,49 @@ export const App: React.FC = () => {
             <Toolbar color="#fff">
                 <Select
                     value={lang}
-                    onChange={(event) => { changeLanguage(String(event.target.value)) }}
+                    onChange={(event) => {
+                        changeLanguage(String(event.target.value));
+                    }}
                     style={{ padding: '5px', width: '180px' }}
                 >
-                    <MenuItem value={'en'}>
-                        {t('LANGUAGES.ENGLISH')}
-                    </MenuItem>
-                    <MenuItem value={'es'}>
-                        {t('LANGUAGES.SPANISH')}
-                    </MenuItem>
-                    <MenuItem value={'de'}>
-                        {t('LANGUAGES.GERMAN')}
-                    </MenuItem>
-                    <MenuItem value={'ar'}>
-                        {t('LANGUAGES.ARABIC')}
-                    </MenuItem>
+                    <MenuItem value={'en'}>{t('LANGUAGES.ENGLISH')}</MenuItem>
+                    <MenuItem value={'es'}>{t('LANGUAGES.SPANISH')}</MenuItem>
+                    <MenuItem value={'de'}>{t('LANGUAGES.GERMAN')}</MenuItem>
+                    <MenuItem value={'ar'}>{t('LANGUAGES.ARABIC')}</MenuItem>
                 </Select>
             </Toolbar>
 
-            <List >
-                { Object.keys(fruits).map((fruit, index) => (
+            <List>
+                {Object.keys(fruits).map((fruit, index) => (
                     <ListItem style={_isRTL() ? { textAlign: 'right' } : null} key={'listItem_' + index} button>
-                        <Checkbox checked={selectedItems.has(fruit)} onChange={() => { select(fruit)}} />
-                        <ListItemText primary={t(`FRUITS.${fruit}`)} secondary={t("MORE_INFO")} />
+                        <Checkbox
+                            checked={selectedItems.has(fruit)}
+                            onChange={() => {
+                                select(fruit);
+                            }}
+                        />
+                        <ListItemText primary={t(`FRUITS.${fruit}`)} secondary={t('MORE_INFO')} />
                         <ListItemIcon>
-                            <ArrowForwardIosIcon className={classes.icon} style={_isRTL() ? { transform: 'scaleX(-1)' } : null} />
+                            <ArrowForwardIosIcon
+                                className={classes.icon}
+                                style={_isRTL() ? { transform: 'scaleX(-1)' } : null}
+                            />
                         </ListItemIcon>
                     </ListItem>
-                )) }
+                ))}
             </List>
 
-            <footer className={selectedItems.size > 0 ? 'active snackbar' : 'snackbar'} style={_isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}>
-                <Typography>
-                    {selectedItems.size + " " + t("ITEMS")}
-                </Typography>
+            <footer
+                className={selectedItems.size > 0 ? 'active snackbar' : 'snackbar'}
+                style={_isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}
+            >
+                <Typography>{selectedItems.size + ' ' + t('ITEMS')}</Typography>
                 <div>
-                    <IconButton onClick={() => { setSelectedItems(new Set())}}>
+                    <IconButton
+                        onClick={() => {
+                            setSelectedItems(new Set());
+                        }}
+                    >
                         <CancelIcon />
                     </IconButton>
                     <IconButton>
@@ -123,4 +129,3 @@ export const App: React.FC = () => {
         </div>
     );
 };
-
