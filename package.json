@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "3.9.3",
+    "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "3.0.2",
-    "@material-ui/styles": "4.1.1",
-    "@pxblue/themes": "1.0.26",
-    "jss": "9.8.7",
-    "jss-rtl": "0.2.3",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "@material-ui/styles": "^4.5.0",
+    "@pxblue/react-themes": "^4.0.0",
+    "i18next": "^19.4.4",
+    "i18next-browser-languagedetector": "^4.1.1",
+    "jss": "^9.8.7",
+    "jss-rtl": "^0.2.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-i18next": "^11.4.0",
     "typeface-noto-sans": "^0.0.72",
     "typeface-open-sans": "^0.0.54"
   },
@@ -21,10 +24,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/react-dom": "^16.9.7",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "react-scripts": "^3.1.1",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "typescript": "^3.7.2"
   },
   "browserslist": {
     "production": [
