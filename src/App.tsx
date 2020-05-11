@@ -28,7 +28,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import SettingsIcon from '@material-ui/icons/Settings';
 import HelpIcon from '@material-ui/icons/Help';
 
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import { english } from './resources/english';
 
@@ -62,7 +62,6 @@ export const App: React.FC = () => {
     const { t, i18n } = useTranslation();
     const fruits = english.translations.FRUITS;
     const menuItems = english.translations.MENU_ITEMS;
-    const iconArray = [<HomeIcon />, <FolderIcon />, <ErrorIcon />, <SettingsIcon />, <HelpIcon />];
 
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
@@ -81,46 +80,49 @@ export const App: React.FC = () => {
         setSelectedItems(selected);
     };
 
-    const getDrawer = (): ReactNode => (
-        <Drawer
-            open={drawerOpen}
-            onClose={(): void => setDrawerOpen(!drawerOpen)}
-            classes={{ paper: classes.drawer }}
-            anchor={_isRTL() ? 'right' : 'left'}
-        >
-            <div className={'flexVert'} style={{ height: '100%', width: '100%' }}>
-                <div dir={_isRTL() ? 'rtl' : 'ltr'} className={`flexVertBottom ${classes.header}`}>
-                    <BoltIcon style={{ fontSize: '64px', transform: 'rotate(42deg)' }} />
-                    <div style={{ padding: '4px' }}>
-                        <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
-                            PX {t('BLUE')}
-                        </Typography>
-                        <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
-                            {t('I18N')}
-                        </Typography>
+    const getDrawer = (): ReactNode => {
+        const iconArray = [<HomeIcon />, <FolderIcon />, <ErrorIcon />, <SettingsIcon />, <HelpIcon />];
+        return (
+            <Drawer
+                open={drawerOpen}
+                onClose={(): void => setDrawerOpen(!drawerOpen)}
+                classes={{ paper: classes.drawer }}
+                anchor={_isRTL() ? 'right' : 'left'}
+            >
+                <div className={'flexVert'} style={{ height: '100%', width: '100%' }}>
+                    <div dir={_isRTL() ? 'rtl' : 'ltr'} className={`flexVertBottom ${classes.header}`}>
+                        <BoltIcon style={{ fontSize: '64px', transform: 'rotate(42deg)' }} />
+                        <div style={{ padding: '4px' }}>
+                            <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
+                                PX {t('BLUE')}
+                            </Typography>
+                            <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
+                                {t('I18N')}
+                            </Typography>
+                        </div>
+                    </div>
+                    <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
+                        <List dir={_isRTL() ? 'rtl' : 'ltr'} style={{ padding: '0px' }}>
+                            {Object.keys(menuItems).map((menuItem, index) => (
+                                <ListItem
+                                    button
+                                    style={_isRTL() ? { textAlign: 'right' } : null}
+                                    className={classes.listItem}
+                                    key={menuItem}
+                                    onClick={(): void => setDrawerOpen(!drawerOpen)}
+                                >
+                                    <ListItemIcon style={_isRTL() ? { transform: 'scaleX(-1)' } : null}>
+                                        {iconArray[index]}
+                                    </ListItemIcon>
+                                    <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
+                                </ListItem>
+                            ))}
+                        </List>
                     </div>
                 </div>
-                <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
-                    <List dir={_isRTL() ? 'rtl' : 'ltr'} style={{ padding: '0px' }}>
-                        {Object.keys(menuItems).map((menuItem, index) => (
-                            <ListItem
-                                button
-                                style={_isRTL() ? { textAlign: 'right' } : null}
-                                className={classes.listItem}
-                                key={menuItem}
-                                onClick={(): void => setDrawerOpen(!drawerOpen)}
-                            >
-                                <ListItemIcon style={_isRTL() ? { transform: 'scaleX(-1)' } : null}>
-                                    {iconArray[index]}
-                                </ListItemIcon>
-                                <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </div>
-            </div>
-        </Drawer>
-    );
+            </Drawer>
+        );
+    };
 
     return (
         <div dir={_isRTL() ? 'rtl' : 'ltr'}>
