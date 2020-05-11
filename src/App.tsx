@@ -111,9 +111,7 @@ export const App: React.FC = () => {
                                     key={menuItem}
                                     onClick={(): void => setDrawerOpen(!drawerOpen)}
                                 >
-                                    <ListItemIcon style={_isRTL() ? { transform: 'scaleX(-1)' } : null}>
-                                        {iconArray[index]}
-                                    </ListItemIcon>
+                                    <ListItemIcon>{iconArray[index]}</ListItemIcon>
                                     <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
                                 </ListItem>
                             ))}
