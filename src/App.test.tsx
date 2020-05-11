@@ -10,7 +10,7 @@ import { createMount } from '@material-ui/core/test-utils';
 Enzyme.configure({ adapter: new Adapter() });
 let mount: any;
 
-describe('ChannelValue', () => {
+describe('Internationalization', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
     });
