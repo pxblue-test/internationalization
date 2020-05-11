@@ -68,7 +68,7 @@ export const App: React.FC = () => {
     const [lang, setLang] = useState('en');
 
     const isRTL = (): boolean => lang === 'ar';
-    const getDirection = (): string => isRTL() ? 'rtl' : 'ltr';
+    const getDirection = (): string => (isRTL() ? 'rtl' : 'ltr');
 
     const changeLanguage = (lng): void => {
         setLang(lng);
@@ -113,7 +113,10 @@ export const App: React.FC = () => {
                                     onClick={(): void => setDrawerOpen(!drawerOpen)}
                                 >
                                     <ListItemIcon>
-                                        <div style={isRTL() ? { transform: 'scaleX(-1)' } : null}> {iconArray[index]}</div>
+                                        <div style={isRTL() ? { transform: 'scaleX(-1)' } : null}>
+                                            {' '}
+                                            {iconArray[index]}
+                                        </div>
                                     </ListItemIcon>
                                     <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
                                 </ListItem>
