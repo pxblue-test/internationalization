@@ -1,20 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
-import Adapter from 'enzyme-adapter-react-16';
-import { createMount, createShallow } from '@material-ui/core/test-utils';
+import { createMount } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 let mount: any;
-let shallow: any;
 
 describe('ChannelValue', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
-        shallow = createShallow({});
     });
 
     afterEach(() => {
