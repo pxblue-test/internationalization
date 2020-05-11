@@ -19,6 +19,9 @@ jobs:
             - ~/.cache
             - ./node_modules
       - run:
+          name: Lint
+          command: yarn lint
+      - run:
           name: Build
           command: yarn build # yarn build for all but React Native
       - run:
