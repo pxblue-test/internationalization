@@ -67,7 +67,8 @@ export const App: React.FC = () => {
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
     const [lang, setLang] = useState('en');
 
-    const _isRTL = (): boolean => lang === 'ar';
+    const isRTL = (): boolean => lang === 'ar';
+    const getDirection = (): string => isRTL() ? 'rtl' : 'ltr';
 
     const changeLanguage = (lng): void => {
         setLang(lng);
@@ -87,10 +88,10 @@ export const App: React.FC = () => {
                 open={drawerOpen}
                 onClose={(): void => setDrawerOpen(!drawerOpen)}
                 classes={{ paper: classes.drawer }}
-                anchor={_isRTL() ? 'right' : 'left'}
+                anchor={isRTL() ? 'right' : 'left'}
             >
                 <div className={'flexVert'} style={{ height: '100%', width: '100%' }}>
-                    <div dir={_isRTL() ? 'rtl' : 'ltr'} className={`flexVertBottom ${classes.header}`}>
+                    <div dir={getDirection()} className={`flexVertBottom ${classes.header}`}>
                         <BoltIcon style={{ fontSize: '64px', transform: 'rotate(42deg)' }} />
                         <div style={{ padding: '4px' }}>
                             <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
@@ -102,17 +103,17 @@ export const App: React.FC = () => {
                         </div>
                     </div>
                     <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
-                        <List dir={_isRTL() ? 'rtl' : 'ltr'} style={{ padding: '0px' }}>
+                        <List dir={getDirection()} style={{ padding: '0px' }}>
                             {Object.keys(menuItems).map((menuItem, index) => (
                                 <ListItem
                                     button
-                                    style={_isRTL() ? { textAlign: 'right' } : null}
+                                    style={isRTL() ? { textAlign: 'right' } : null}
                                     className={classes.listItem}
                                     key={menuItem}
                                     onClick={(): void => setDrawerOpen(!drawerOpen)}
                                 >
                                     <ListItemIcon>
-                                        <div style={_isRTL() ? { transform: 'scaleX(-1)' } : null}> {iconArray[index]}</div>
+                                        <div style={isRTL() ? { transform: 'scaleX(-1)' } : null}> {iconArray[index]}</div>
                                     </ListItemIcon>
                                     <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
                                 </ListItem>
@@ -125,7 +126,7 @@ export const App: React.FC = () => {
     };
 
     return (
-        <div dir={_isRTL() ? 'rtl' : 'ltr'}>
+        <div dir={getDirection()}>
             {getDrawer()}
             <AppBar position="static">
                 <Toolbar>
@@ -153,7 +154,7 @@ export const App: React.FC = () => {
                     <MenuItem value={'zh'}>{t('LANGUAGES.CHINESE')}</MenuItem>
                 </Select>
                 <Button variant="contained" color="primary" style={{ margin: '10px', textTransform: 'none' }}>
-                    <CartIcon className={classes.icon} style={_isRTL() ? { transform: 'scaleX(-1)' } : null} />
+                    <CartIcon className={classes.icon} style={isRTL() ? { transform: 'scaleX(-1)' } : null} />
                     <Typography noWrap color="inherit">
                         {t('ADD_TO_CART')}
                     </Typography>
@@ -162,13 +163,13 @@ export const App: React.FC = () => {
 
             <List>
                 {Object.keys(fruits).map((fruit, index) => (
-                    <ListItem style={_isRTL() ? { textAlign: 'right' } : null} key={`listItem_${index}`} button>
+                    <ListItem style={isRTL() ? { textAlign: 'right' } : null} key={`listItem_${index}`} button>
                         <Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />
                         <ListItemText primary={t(`FRUITS.${fruit}`)} secondary={t('MORE_INFO')} />
                         <ListItemIcon>
                             <ArrowForwardIosIcon
                                 className={classes.icon}
-                                style={_isRTL() ? { transform: 'scaleX(-1)' } : null}
+                                style={isRTL() ? { transform: 'scaleX(-1)' } : null}
                             />
                         </ListItemIcon>
                     </ListItem>
@@ -177,7 +178,7 @@ export const App: React.FC = () => {
 
             <footer
                 className={selectedItems.size > 0 ? 'active snackbar' : 'snackbar'}
-                style={_isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}
+                style={isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}
             >
                 <Typography>{`${selectedItems.size} ${t('ITEMS')}`}</Typography>
                 <div>
