@@ -4,7 +4,7 @@ export const french: SampleTranslation = {
     translations: {
         FRUITS: {
             APPLE: 'Pomme',
-            BANANA: 'banane',
+            BANANA: 'Banane',
             GRAPE: 'Grain de raisin',
             ORANGE: 'Orange',
             GUAVA: 'Goyave',
@@ -28,7 +28,7 @@ export const french: SampleTranslation = {
         I18N: 'Internationalisation',
         BLUE: 'Bleue',
         MENU_ITEMS: {
-            HOME: 'Accueil',
+            HOME: "Page d'accueil",
             PROJECTS: 'Projets',
             WARNINGS: 'Avertissements',
             SETTINGS: 'Réglages',
