@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import React, { ReactNode, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
-    AppBar, Button,
+    AppBar,
+    Button,
     Checkbox,
+    Drawer,
     IconButton,
     List,
     ListItem,
@@ -13,17 +15,28 @@ import {
     Toolbar,
     Typography,
 } from '@material-ui/core';
-import CartIcon from '@material-ui/icons/ShoppingCart'
 
-
+import BoltIcon from '@material-ui/icons/OfflineBolt';
+import MenuIcon from '@material-ui/icons/Menu';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import CartIcon from '@material-ui/icons/ShoppingCart';
 import CancelIcon from '@material-ui/icons/Cancel';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import HomeIcon from '@material-ui/icons/Home';
+import FolderIcon from '@material-ui/icons/Folder';
+import ErrorIcon from '@material-ui/icons/Error';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HelpIcon from '@material-ui/icons/Help';
+
 import { makeStyles, useTheme } from '@material-ui/styles';
 import * as Colors from '@pxblue/colors';
 import { english } from './resources/english';
 
 const useStyles = makeStyles(() => ({
+    drawer: {
+        maxWidth: '85%',
+        width: 350,
+    },
     header: {
         height: '180px',
         color: 'white',
@@ -32,12 +45,12 @@ const useStyles = makeStyles(() => ({
     },
     icon: {
         fontSize: '16px',
-        margin: '5px',
+        margin: '4px',
     },
     listItem: {
-        paddingLeft: '15px',
-        height: '50px',
-        paddingRight: '15px',
+        paddingLeft: '156x',
+        height: '48px',
+        paddingRight: '24px',
         '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.08)',
         },
@@ -48,27 +61,75 @@ export const App: React.FC = () => {
     const classes = useStyles(useTheme());
     const { t, i18n } = useTranslation();
     const fruits = english.translations.FRUITS;
+    const menuItems = english.translations.MENU_ITEMS;
+    const iconArray = [<HomeIcon />, <FolderIcon />, <ErrorIcon />, <SettingsIcon />, <HelpIcon />];
 
+    const [drawerOpen, setDrawerOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
     const [lang, setLang] = useState('en');
 
-    const changeLanguage = (lng) => {
+    const _isRTL = (): boolean => lang === 'ar';
+
+    const changeLanguage = (lng): void => {
         setLang(lng);
         i18n.changeLanguage(lng);
     };
 
-    const select = (fruit: string) => {
+    const selectFruit = (fruit: string): void => {
         const selected = new Set(selectedItems);
         selected.has(fruit) ? selected.delete(fruit) : selected.add(fruit);
         setSelectedItems(selected);
     };
 
-    const _isRTL = () => lang === 'ar';
+    const getDrawer = (): ReactNode => (
+        <Drawer
+            open={drawerOpen}
+            onClose={(): void => setDrawerOpen(!drawerOpen)}
+            classes={{ paper: classes.drawer }}
+            anchor={_isRTL() ? 'right' : 'left'}
+        >
+            <div className={'flexVert'} style={{ height: '100%', width: '100%' }}>
+                <div dir={_isRTL() ? 'rtl' : 'ltr'} className={`flexVertBottom ${classes.header}`}>
+                    <BoltIcon style={{ fontSize: '64px', transform: 'rotate(42deg)' }} />
+                    <div style={{ padding: '4px' }}>
+                        <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
+                            PX {t('BLUE')}
+                        </Typography>
+                        <Typography variant="subtitle1" color="inherit" style={{ lineHeight: '1rem' }}>
+                            {t('I18N')}
+                        </Typography>
+                    </div>
+                </div>
+                <div style={{ flex: '1 1 0px', overflowY: 'auto' }}>
+                    <List dir={_isRTL() ? 'rtl' : 'ltr'} style={{ padding: '0px' }}>
+                        {Object.keys(menuItems).map((menuItem, index) => (
+                            <ListItem
+                                button
+                                style={_isRTL() ? { textAlign: 'right' } : null}
+                                className={classes.listItem}
+                                key={menuItem}
+                                onClick={(): void => setDrawerOpen(!drawerOpen)}
+                            >
+                                <ListItemIcon style={_isRTL() ? { transform: 'scaleX(-1)' } : null}>
+                                    {iconArray[index]}
+                                </ListItemIcon>
+                                <ListItemText primary={t(`MENU_ITEMS.${menuItem}`)} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </div>
+            </div>
+        </Drawer>
+    );
 
     return (
         <div dir={_isRTL() ? 'rtl' : 'ltr'}>
+            {getDrawer()}
             <AppBar position="static">
                 <Toolbar>
+                    <IconButton color="inherit" onClick={(): void => setDrawerOpen(!drawerOpen)}>
+                        <MenuIcon />
+                    </IconButton>
                     <Typography variant="h6" color="inherit">
                         {t('I18N')}
                     </Typography>
@@ -78,10 +139,8 @@ export const App: React.FC = () => {
             <Toolbar color="#fff">
                 <Select
                     value={lang}
-                    onChange={(event) => {
-                        changeLanguage(String(event.target.value));
-                    }}
-                    style={{ padding: '5px', width: '180px' }}
+                    onChange={(event): void => changeLanguage(String(event.target.value))}
+                    style={{ padding: 4, width: 180, marginLeft: 4 }}
                 >
                     <MenuItem value={'en'}>{t('LANGUAGES.ENGLISH')}</MenuItem>
                     <MenuItem value={'es'}>{t('LANGUAGES.SPANISH')}</MenuItem>
@@ -90,19 +149,16 @@ export const App: React.FC = () => {
                 </Select>
                 <Button variant="contained" color="primary" style={{ margin: '10px', textTransform: 'none' }}>
                     <CartIcon className={classes.icon} style={_isRTL() ? { transform: 'scaleX(-1)' } : null} />
-                    <Typography noWrap color="inherit" > {t("ADD_TO_CART")} </Typography>
+                    <Typography noWrap color="inherit">
+                        {t('ADD_TO_CART')}
+                    </Typography>
                 </Button>
             </Toolbar>
 
             <List>
                 {Object.keys(fruits).map((fruit, index) => (
-                    <ListItem style={_isRTL() ? { textAlign: 'right' } : null} key={'listItem_' + index} button>
-                        <Checkbox
-                            checked={selectedItems.has(fruit)}
-                            onChange={() => {
-                                select(fruit);
-                            }}
-                        />
+                    <ListItem style={_isRTL() ? { textAlign: 'right' } : null} key={`listItem_${index}`} button>
+                        <Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />
                         <ListItemText primary={t(`FRUITS.${fruit}`)} secondary={t('MORE_INFO')} />
                         <ListItemIcon>
                             <ArrowForwardIosIcon
@@ -118,10 +174,10 @@ export const App: React.FC = () => {
                 className={selectedItems.size > 0 ? 'active snackbar' : 'snackbar'}
                 style={_isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}
             >
-                <Typography>{selectedItems.size + ' ' + t('ITEMS')}</Typography>
+                <Typography>{`${selectedItems.size} ${t('ITEMS')}`}</Typography>
                 <div>
                     <IconButton
-                        onClick={() => {
+                        onClick={(): void => {
                             setSelectedItems(new Set());
                         }}
                     >

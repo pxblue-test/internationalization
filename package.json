@@ -19,8 +19,8 @@
   },
   "prettier": "@pxblue/prettier-config",
   "scripts": {
-    "lint": "eslint \"src/**/**.ts\"",
-    "lint:fix": "eslint \"src/**/**.ts\" --fix",
+    "lint": "eslint \"src/**/**.tsx\"",
+    "lint:fix": "eslint \"src/**/**.tsx\" --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -28,14 +28,19 @@
     "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
   },
   "devDependencies": {
+    "@pxblue/eslint-config": "^1.1.5",
     "@pxblue/prettier-config": "^1.0.2",
     "@types/react-dom": "^16.9.7",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "prettier": "^2.0.5",
     "react-scripts": "^3.1.1",
     "react-test-renderer": "^16.8.6",
-    "typescript": "^3.7.2"
+    "typescript": "3.5.2"
   },
   "browserslist": {
     "production": [

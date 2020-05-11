@@ -1,6 +1,6 @@
-import { TranslationSet } from './translation-type';
+import { SampleTranslation } from './sample-translation';
 
-export const arabic: TranslationSet = {
+export const arabic: SampleTranslation = {
     translations: {
         FRUITS: {
             APPLE: 'تفاحة',
@@ -11,7 +11,7 @@ export const arabic: TranslationSet = {
             COCONUT: 'عنب',
             LEMON: 'ليمون',
             PINEAPPLE: 'أناناس',
-            WATERMELLON: 'البطيخ',
+            WATERMELON: 'البطيخ',
         },
         LANGUAGES: {
             ENGLISH: 'الإنجليزية',
@@ -24,5 +24,12 @@ export const arabic: TranslationSet = {
         ITEMS: 'عناصر',
         I18N: 'تدويل',
         BLUE: 'أزرق',
+        MENU_ITEMS: {
+            HOME: 'الرئيسية',
+            PROJECTS: 'مشاريع',
+            WARNINGS: 'إنذار',
+            SETTINGS: 'إعدادات',
+            HELP: 'مساعدة',
+        },
     },
 };

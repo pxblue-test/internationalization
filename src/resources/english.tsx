@@ -1,6 +1,6 @@
-import { TranslationSet } from './translation-type';
+import { SampleTranslation } from './sample-translation';
 
-export const english: any = {
+export const english: SampleTranslation = {
     translations: {
         FRUITS: {
             APPLE: 'Apple',
@@ -11,7 +11,7 @@ export const english: any = {
             COCONUT: 'Coconut',
             LEMON: 'Lemon',
             PINEAPPLE: 'Pineapple',
-            WATERMELLON: 'Watermellon',
+            WATERMELON: 'Watermelon',
         },
         LANGUAGES: {
             ENGLISH: 'English',
@@ -24,5 +24,12 @@ export const english: any = {
         ITEMS: 'Items',
         I18N: 'Internationalization',
         BLUE: 'Blue',
+        MENU_ITEMS: {
+            HOME: 'Home',
+            PROJECTS: 'Projects',
+            WARNINGS: 'Warnings',
+            SETTINGS: 'Settings',
+            HELP: 'Help',
+        },
     },
 };
