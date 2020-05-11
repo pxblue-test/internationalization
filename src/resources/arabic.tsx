@@ -20,7 +20,7 @@ export const arabic: SampleTranslation = {
             ARABIC: 'عربى',
             FRENCH: 'فرنسي',
             PORTUGUESE: 'البرتغالية',
-            CHINESE: 'صينى'
+            CHINESE: 'صينى',
         },
         ADD_TO_CART: 'أضف إلى العربة',
         MORE_INFO: 'مزيد من المعلومات',

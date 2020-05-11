@@ -6,9 +6,9 @@ import { english } from './english';
 import { arabic } from './arabic';
 import { spanish } from './spanish';
 import { german } from './german';
-import {french} from "./french";
-import {portuguese} from "./portuguese";
-import {chinese} from "./chinese";
+import { french } from './french';
+import { portuguese } from './portuguese';
+import { chinese } from './chinese';
 
 i18n.use(initReactI18next)
     .use(LanguageDetector)
@@ -21,7 +21,7 @@ i18n.use(initReactI18next)
             de: german,
             fr: french,
             pt: portuguese,
-            zh: chinese
+            zh: chinese,
         },
         fallbackLng: 'english',
         debug: true,

@@ -20,10 +20,10 @@ export const french: SampleTranslation = {
             ARABIC: 'Arabe',
             FRENCH: 'Française',
             PORTUGUESE: 'Portugais',
-            CHINESE: 'Chinoise'
+            CHINESE: 'Chinoise',
         },
         ADD_TO_CART: 'Ajouter au chariot',
-        MORE_INFO: 'Plus d\'information',
+        MORE_INFO: "Plus d'information",
         ITEMS: 'Articles',
         I18N: 'Internationalisation',
         BLUE: 'Bleue',

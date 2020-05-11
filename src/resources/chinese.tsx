@@ -20,7 +20,7 @@ export const chinese: SampleTranslation = {
             ARABIC: '阿拉伯',
             FRENCH: '法文',
             PORTUGUESE: '葡萄牙语',
-            CHINESE: '中文'
+            CHINESE: '中文',
         },
         ADD_TO_CART: '添加到购物车',
         MORE_INFO: '更多信息',
