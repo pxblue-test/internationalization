@@ -18,6 +18,9 @@ export const arabic: SampleTranslation = {
             SPANISH: 'الأسبانية',
             GERMAN: 'ألمانية',
             ARABIC: 'عربى',
+            FRENCH: 'فرنسي',
+            PORTUGUESE: 'البرتغالية',
+            CHINESE: 'صينى'
         },
         ADD_TO_CART: 'أضف إلى العربة',
         MORE_INFO: 'مزيد من المعلومات',

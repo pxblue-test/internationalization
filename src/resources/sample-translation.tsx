@@ -16,6 +16,9 @@ export type SampleTranslation = {
             SPANISH: string;
             ARABIC: string;
             GERMAN: string;
+            FRENCH: string;
+            PORTUGUESE: string;
+            CHINESE: string;
         };
         MENU_ITEMS: {
             HOME: string;

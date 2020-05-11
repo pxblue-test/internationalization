@@ -146,6 +146,9 @@ export const App: React.FC = () => {
                     <MenuItem value={'es'}>{t('LANGUAGES.SPANISH')}</MenuItem>
                     <MenuItem value={'de'}>{t('LANGUAGES.GERMAN')}</MenuItem>
                     <MenuItem value={'ar'}>{t('LANGUAGES.ARABIC')}</MenuItem>
+                    <MenuItem value={'fr'}>{t('LANGUAGES.FRENCH')}</MenuItem>
+                    <MenuItem value={'pt'}>{t('LANGUAGES.PORTUGUESE')}</MenuItem>
+                    <MenuItem value={'zh'}>{t('LANGUAGES.CHINESE')}</MenuItem>
                 </Select>
                 <Button variant="contained" color="primary" style={{ margin: '10px', textTransform: 'none' }}>
                     <CartIcon className={classes.icon} style={_isRTL() ? { transform: 'scaleX(-1)' } : null} />

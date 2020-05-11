@@ -18,6 +18,9 @@ export const german: SampleTranslation = {
             SPANISH: 'Spanisch',
             GERMAN: 'Deutsche',
             ARABIC: 'Arabisch',
+            FRENCH: 'Französisch',
+            PORTUGUESE: 'Portugiesisch',
+            CHINESE: 'Chinesisch'
         },
         ADD_TO_CART: 'In den Einkaufswagen',
         MORE_INFO: 'Mehr Informationen',
