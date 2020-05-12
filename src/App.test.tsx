@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
 import Adapter from 'enzyme-adapter-react-16';
-import MenuIcon from '@material-ui/icons/Menu';
+import './resources/i18n';
 
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });

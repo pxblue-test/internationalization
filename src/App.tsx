@@ -187,12 +187,7 @@ export const App: React.FC = () => {
                         style={{ textAlign: isRTL() ? 'right' : 'left' }}
                         title={t(`FRUITS.${fruit}`)}
                         subtitle={t('MORE_INFO')}
-                        icon={
-                            <Checkbox
-                                checked={selectedItems.has(fruit)}
-                                onChange={(): void => selectFruit(fruit)}
-                            />
-                        }
+                        icon={<Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />}
                         rightComponent={
                             <ArrowForwardIosIcon
                                 className={classes.icon}
