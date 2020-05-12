@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useState} from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     AppBar,
@@ -44,6 +44,13 @@ const useStyles = makeStyles(() => ({
         background: Colors.blue[500],
         padding: '16px',
     },
+    snackbar: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        opacity: 1,
+    },
     icon: {
         fontSize: '16px',
         margin: '4px',
@@ -67,18 +74,20 @@ export const App: React.FC = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
     const [lang, setLang] = useState('en');
-
-    useEffect(() => {
-        changeLanguage('en');
-    }, []);
-
     const isRTL = (): boolean => lang === 'ar';
     const getDirection = (): string => (isRTL() ? 'rtl' : 'ltr');
 
-    const changeLanguage = (lng): void => {
-        setLang(lng);
-        i18n.changeLanguage(lng);
-    };
+    const changeLanguage = useCallback(
+        (lng) => {
+            setLang(lng);
+            i18n.changeLanguage(lng);
+        },
+        [i18n]
+    );
+
+    useEffect(() => {
+        changeLanguage('en');
+    }, [changeLanguage]);
 
     const selectFruit = (fruit: string): void => {
         const selected = new Set(selectedItems);
@@ -135,8 +144,8 @@ export const App: React.FC = () => {
 
     return (
         <div dir={getDirection()}>
-            {getDrawer()}
             <AppBar position="static">
+                {getDrawer()}
                 <Toolbar>
                     <IconButton color="inherit" onClick={(): void => setDrawerOpen(!drawerOpen)}>
                         <MenuIcon />
@@ -173,10 +182,16 @@ export const App: React.FC = () => {
                 {Object.keys(fruits).map((fruit, index) => (
                     <InfoListItem
                         key={index}
+                        onClick={() => selectFruit(fruit)}
+                        ripple={true}
+                        style={{ textAlign: isRTL() ? 'right' : 'left' }}
                         title={t(`FRUITS.${fruit}`)}
                         subtitle={t('MORE_INFO')}
                         icon={
-                            <Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />
+                            <Checkbox
+                                checked={selectedItems.has(fruit)}
+                                onChange={(): void => selectFruit(fruit)}
+                            />
                         }
                         rightComponent={
                             <ArrowForwardIosIcon
@@ -189,7 +204,7 @@ export const App: React.FC = () => {
             </List>
 
             <footer
-                className={selectedItems.size > 0 ? 'active snackbar' : 'snackbar'}
+                className={selectedItems.size > 0 ? `active ${classes.snackbar}` : `${classes.snackbar}`}
                 style={isRTL() ? { paddingRight: '32px', paddingLeft: '4px' } : null}
             >
                 <Typography>{`${selectedItems.size} ${t('ITEMS')}`}</Typography>
