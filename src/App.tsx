@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     AppBar,
@@ -31,6 +31,7 @@ import HelpIcon from '@material-ui/icons/Help';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import { english } from './resources/english';
+import { InfoListItem } from '@pxblue/react-components';
 
 const useStyles = makeStyles(() => ({
     drawer: {
@@ -66,6 +67,10 @@ export const App: React.FC = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState(new Set<string>());
     const [lang, setLang] = useState('en');
+
+    useEffect(() => {
+        changeLanguage('en');
+    }, []);
 
     const isRTL = (): boolean => lang === 'ar';
     const getDirection = (): string => (isRTL() ? 'rtl' : 'ltr');
@@ -166,16 +171,20 @@ export const App: React.FC = () => {
 
             <List>
                 {Object.keys(fruits).map((fruit, index) => (
-                    <ListItem style={isRTL() ? { textAlign: 'right' } : null} key={`listItem_${index}`} button>
-                        <Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />
-                        <ListItemText primary={t(`FRUITS.${fruit}`)} secondary={t('MORE_INFO')} />
-                        <ListItemIcon>
+                    <InfoListItem
+                        key={index}
+                        title={t(`FRUITS.${fruit}`)}
+                        subtitle={t('MORE_INFO')}
+                        icon={
+                            <Checkbox checked={selectedItems.has(fruit)} onChange={(): void => selectFruit(fruit)} />
+                        }
+                        rightComponent={
                             <ArrowForwardIosIcon
                                 className={classes.icon}
                                 style={isRTL() ? { transform: 'scaleX(-1)' } : null}
                             />
-                        </ListItemIcon>
-                    </ListItem>
+                        }
+                    />
                 ))}
             </List>
 
