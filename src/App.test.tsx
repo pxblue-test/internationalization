@@ -6,16 +6,14 @@ import './resources/i18n';
 
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
-import { createMount, createShallow } from '@material-ui/core/test-utils';
+import { createMount } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 let mount: any;
-let shallow: any;
 
 describe('Internationalization', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
-        shallow = createShallow({ dive: true });
     });
 
     afterEach(() => {

@@ -182,7 +182,7 @@ export const App: React.FC = () => {
                 {Object.keys(fruits).map((fruit, index) => (
                     <InfoListItem
                         key={index}
-                        onClick={() => selectFruit(fruit)}
+                        onClick={(): void => selectFruit(fruit)}
                         ripple={true}
                         style={{ textAlign: isRTL() ? 'right' : 'left' }}
                         title={t(`FRUITS.${fruit}`)}
