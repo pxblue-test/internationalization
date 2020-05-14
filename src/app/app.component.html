@@ -1,42 +1,39 @@
 <mat-sidenav-container class="app-container" (backdropClick)="open = false">
     <mat-sidenav mode="over" class="sidenav" [opened]="open">
-        <mat-nav-list fxLayout="column" fxFlexFill style="padding-top: 0; overflow-x: hidden;">
-            <mat-toolbar style="background-color: #007bc1; color: white; min-height: 150px;">
-                <mat-toolbar-row style="height: 72px; margin-left: 10px; margin-bottom: 42px; margin-right: 10px;">
-                    <mat-icon class="logo" style="font-size: 64px; transform: rotate(42deg);">offline_bolt</mat-icon>
+        <mat-nav-list fxLayout="column" fxFlexFill class="sidenav-content">
+            <mat-toolbar class="toolbar-header">
+                <mat-toolbar-row class="logo-row">
+                    <mat-icon class="logo">offline_bolt</mat-icon>
                 </mat-toolbar-row>
                 <mat-toolbar-row style="height: 4px;">
                     <small>PX {{ 'BLUE' | translate }}</small>
                 </mat-toolbar-row>
-                <mat-toolbar-row fxLayout="row">
-                    <small fxFlex>{{ 'I18N' | translate }}</small>
+                <mat-toolbar-row>
+                    <small>{{ 'I18N' | translate }}</small>
                 </mat-toolbar-row>
             </mat-toolbar>
-
             <mat-divider></mat-divider>
-            <div class="navWrapper">
-                <section fxLayout="column">
-                    <a mat-list-item (click)="toggleMenu()">
-                        <mat-icon matListIcon class="icon">home</mat-icon>
-                        <span>{{ 'MENU_ITEMS.HOME' | translate }}</span>
-                    </a>
-                    <a mat-list-item (click)="toggleMenu()">
-                        <mat-icon matListIcon class="icon">folder</mat-icon>
-                        <span>{{ 'MENU_ITEMS.PROJECTS' | translate }}</span>
-                    </a>
-                    <a mat-list-item (click)="toggleMenu()">
-                        <mat-icon matListIcon class="icon">report</mat-icon>
-                        <span>{{ 'MENU_ITEMS.WARNINGS' | translate }}</span>
-                    </a>
-                    <a mat-list-item (click)="toggleMenu()">
-                        <mat-icon matListIcon class="icon">settings</mat-icon>
-                        <span>{{ 'MENU_ITEMS.SETTINGS' | translate }}</span>
-                    </a>
-                    <a mat-list-item (click)="toggleMenu()">
-                        <mat-icon matListIcon class="icon">help</mat-icon>
-                        <span>{{ 'MENU_ITEMS.HELP' | translate }}</span>
-                    </a>
-                </section>
+            <div class="nav-wrapper">
+                <a mat-list-item (click)="toggleMenu()">
+                    <mat-icon matListIcon>home</mat-icon>
+                    <span>{{ 'MENU_ITEMS.HOME' | translate }}</span>
+                </a>
+                <a mat-list-item (click)="toggleMenu()">
+                    <mat-icon matListIcon>folder</mat-icon>
+                    <span>{{ 'MENU_ITEMS.PROJECTS' | translate }}</span>
+                </a>
+                <a mat-list-item (click)="toggleMenu()">
+                    <mat-icon matListIcon >report</mat-icon>
+                    <span>{{ 'MENU_ITEMS.WARNINGS' | translate }}</span>
+                </a>
+                <a mat-list-item (click)="toggleMenu()">
+                    <mat-icon matListIcon>settings</mat-icon>
+                    <span>{{ 'MENU_ITEMS.SETTINGS' | translate }}</span>
+                </a>
+                <a mat-list-item (click)="toggleMenu()">
+                    <mat-icon matListIcon>help</mat-icon>
+                    <span>{{ 'MENU_ITEMS.HELP' | translate }}</span>
+                </a>
             </div>
         </mat-nav-list>
     </mat-sidenav>
@@ -55,7 +52,7 @@
             <div fxFlex style="margin: auto;"></div>
         </mat-toolbar>
 
-        <mat-toolbar class="secondary-toolbar">
+        <mat-toolbar class="select-language">
             <mat-form-field>
                 <mat-select
                     #langeSelect
