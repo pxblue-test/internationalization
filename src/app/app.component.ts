@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
 import { SampleTranslation } from './i18n/sample-translation';
 import { english } from './i18n/english';
+import { BidirectionalService } from './services/bidirectional.service';
 
 @Component({
     selector: 'my-app',
@@ -15,7 +16,7 @@ export class AppComponent {
     selectedFruits = new Set<string>();
     fruits = Object.keys(english.FRUITS);
 
-    constructor(public translate: TranslateService) {
+    constructor(public translate: TranslateService, private bidirectionalService: BidirectionalService) {
         translate.addLangs(this.enabledLocales);
         translate.setDefaultLang('EN');
         this.selectedLanguage = this.enabledLocales[0];
@@ -30,18 +31,13 @@ export class AppComponent {
         this.selectedFruits.has(fruit) ? this.selectedFruits.delete(fruit) : this.selectedFruits.add(fruit);
     }
 
-    isRTL(lang: string): boolean {
-        return lang === 'AR';
-    }
-
     cancelItems(): void {
         this.selectedFruits.clear();
     }
 
     listenForLanguageChanges(): void {
         this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
-            const body = document.querySelector('body');
-            body.setAttribute('dir', this.isRTL(event.lang) ? 'rtl' : 'ltr');
+            this.bidirectionalService.changeDirectionality(event.lang);
         });
     }
 }
