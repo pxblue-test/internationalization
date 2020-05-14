@@ -13,4 +13,9 @@ describe('BidirectionService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
+
+    it('should return true if the language is Arabic', () => {
+        expect(service.isRTL('ar')).toBe(true);
+        expect(service.isRTL('en')).toBe(false);
+    })
 });
