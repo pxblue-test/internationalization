@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pxb-i18n": {
+    "internationalization": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pxb-i18n",
+            "outputPath": "dist/internationalization",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pxb-i18n:build"
+            "browserTarget": "internationalization:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pxb-i18n:build:production"
+              "browserTarget": "internationalization:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pxb-i18n:build"
+            "browserTarget": "internationalization:build"
           }
         },
         "test": {
@@ -98,5 +98,5 @@
         }
       }
     }},
-  "defaultProject": "pxb-i18n"
+  "defaultProject": "internationalization"
 }
