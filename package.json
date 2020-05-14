@@ -3,28 +3,46 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "3.9.3",
-    "@material-ui/icons": "3.0.2",
-    "@material-ui/styles": "4.1.1",
-    "@pxblue/themes": "1.0.26",
-    "jss": "9.8.7",
-    "jss-rtl": "0.2.3",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "4.0.0",
+    "@material-ui/styles": "^4.5.0",
+    "@pxblue/react-components": "^4.0.0",
+    "@pxblue/react-themes": "^4.0.0",
+    "i18next": "^19.4.4",
+    "i18next-browser-languagedetector": "^4.1.1",
+    "jss": "^9.8.7",
+    "jss-rtl": "^0.2.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-i18next": "^11.4.0",
     "typeface-noto-sans": "^0.0.72",
     "typeface-open-sans": "^0.0.54"
   },
+  "prettier": "@pxblue/prettier-config",
   "scripts": {
+    "lint": "eslint \"src/**/**.tsx\"",
+    "lint:fix": "eslint \"src/**/**.tsx\" --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
   },
   "devDependencies": {
+    "@pxblue/eslint-config": "^1.1.5",
+    "@pxblue/prettier-config": "^1.0.2",
+    "@types/jest": "^25.2.1",
+    "@types/react-dom": "^16.9.7",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "prettier": "^2.0.5",
     "react-scripts": "^3.1.1",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "typescript": "3.5.2"
   },
   "browserslist": {
     "production": [
