@@ -24,7 +24,7 @@ i18n.use(initReactI18next)
             zh: chinese,
         },
         fallbackLng: 'english',
-        debug: true,
+        debug: false,
 
         // have a common namespace used around the full app
         ns: ['translations'],
