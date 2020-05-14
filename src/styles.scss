@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
-  margin: 0;
-  height: 100%;
-  width: 100%;
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 * {
-  //caution this will block text fields in safari
-  user-select: none;
-  box-sizing: border-box;
+    //caution this will block text fields in safari
+    user-select: none;
+    box-sizing: border-box;
 }

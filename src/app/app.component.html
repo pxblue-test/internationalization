@@ -1,30 +1,30 @@
-<mat-sidenav-container  class="app-container" (backdropClick)="open = false">
+<mat-sidenav-container class="app-container" (backdropClick)="open = false">
     <mat-sidenav mode="over" class="sidenav" [opened]="open">
-       <mat-nav-list fxLayout="column" fxFlexFill style="padding-top:0; overflow-x:hidden">
-        <mat-toolbar style="background-color:#007bc1; color:white; min-height:150px;">
-          <mat-toolbar-row style="height:72px; margin-left: 10px; margin-bottom: 42px; margin-right:10px;">
-            <mat-icon class ="logo"style="font-size:64px; transform:rotate(42deg);">offline_bolt</mat-icon>
-          </mat-toolbar-row>
-          <mat-toolbar-row style="height:4px;">
-            <small>PX {{"BLUE" | translate}}</small>
-          </mat-toolbar-row>
-          <mat-toolbar-row  fxLayout="row">
-            <small fxFlex>{{"I18N" | translate}}</small>
-          </mat-toolbar-row>
-        </mat-toolbar>
+        <mat-nav-list fxLayout="column" fxFlexFill style="padding-top: 0; overflow-x: hidden;">
+            <mat-toolbar style="background-color: #007bc1; color: white; min-height: 150px;">
+                <mat-toolbar-row style="height: 72px; margin-left: 10px; margin-bottom: 42px; margin-right: 10px;">
+                    <mat-icon class="logo" style="font-size: 64px; transform: rotate(42deg);">offline_bolt</mat-icon>
+                </mat-toolbar-row>
+                <mat-toolbar-row style="height: 4px;">
+                    <small>PX {{ 'BLUE' | translate }}</small>
+                </mat-toolbar-row>
+                <mat-toolbar-row fxLayout="row">
+                    <small fxFlex>{{ 'I18N' | translate }}</small>
+                </mat-toolbar-row>
+            </mat-toolbar>
 
-        <mat-divider></mat-divider>
-        <div class="navWrapper">
-          <section fxLayout="column">
-            <a mat-list-item *ngFor="let item of menuItems; let i = index" (click)="toggleMenu()">
-              <mat-icon matListIcon class="icon">{{menuIcons[i]}}</mat-icon>
-              <span>{{'MENU_ITEMS.'+item | translate}}</span>
-            </a>
-          </section>
-        </div>
-      </mat-nav-list>
+            <mat-divider></mat-divider>
+            <div class="navWrapper">
+                <section fxLayout="column">
+                    <a mat-list-item *ngFor="let item of menuItems; let i = index" (click)="toggleMenu()">
+                        <mat-icon matListIcon class="icon">{{ menuIcons[i] }}</mat-icon>
+                        <span>{{ 'MENU_ITEMS.' + item | translate }}</span>
+                    </a>
+                </section>
+            </div>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="nav-content">
-      <list-component (menuClicked)="toggleMenu()"></list-component>
+        <list-component (menuClicked)="toggleMenu()"></list-component>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-sidenav-container>

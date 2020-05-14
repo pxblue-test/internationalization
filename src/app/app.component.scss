@@ -1,31 +1,30 @@
 @import '~@pxblue/colors/palette';
-.app-container{
-  height: 100%;
-  width: 100%;
+.app-container {
+    height: 100%;
+    width: 100%;
 }
-.sidenav{
-  max-width: 90%;
-  transition: width 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
-  width: 350px;
+.sidenav {
+    max-width: 90%;
+    transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 350px;
 }
-.icon{
-  color: map-get($pxb-gray, 700)
-}
-
-.navWrapper{
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-section{
-  flex: 0 0 auto;
-}
-[matListIcon]{
-  margin-right: 16px;
-}
-[matSubheader]{
-  white-space: nowrap;
+.icon {
+    color: map-get($pxb-gray, 700);
 }
 
+.navWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+section {
+    flex: 0 0 auto;
+}
+[matListIcon] {
+    margin-right: 16px;
+}
+[matSubheader] {
+    white-space: nowrap;
+}
