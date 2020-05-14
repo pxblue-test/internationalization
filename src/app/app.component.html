@@ -9,7 +9,7 @@
                     <small>PX {{ 'BLUE' | translate }}</small>
                 </mat-toolbar-row>
                 <mat-toolbar-row>
-                    <small>{{ 'I18N' | translate }}</small>
+                    <small style="margin-top: -24px">{{ 'I18N' | translate }}</small>
                 </mat-toolbar-row>
             </mat-toolbar>
             <mat-divider></mat-divider>
@@ -76,12 +76,8 @@
                     (change)="toggleFruit(fruit)"
                     color="primary"
                 ></mat-checkbox>
-                <div mat-line>
-                    {{ 'FRUITS.' + fruit | translate }}
-                </div>
-                <div mat-line class="list">
-                    {{ 'MORE_INFO' | translate }}
-                </div>
+                <div mat-line>{{ 'FRUITS.' + fruit | translate }}</div>
+                <div mat-line class="list">{{ 'MORE_INFO' | translate }}</div>
                 <mat-icon class="icon">navigate_next</mat-icon>
             </mat-list-item>
         </mat-nav-list>

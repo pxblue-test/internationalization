@@ -12,3 +12,10 @@ body {
     user-select: none;
     box-sizing: border-box;
 }
+
+
+body[dir='rtl'] {
+    mat-icon {
+        transform: rotateY(180deg)
+    }
+}
