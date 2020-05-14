@@ -36,10 +36,10 @@
             margin: 0 16px;
         }
     }
-
 }
 
-.icon, .nav-wrapper mat-icon {
+.icon,
+.nav-wrapper mat-icon {
     color: map-get($pxb-gray, 700);
 }
 .list {
