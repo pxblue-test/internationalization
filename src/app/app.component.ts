@@ -16,7 +16,7 @@ export class AppComponent {
     selectedFruits = new Set<string>();
     fruits = Object.keys(english.FRUITS);
 
-    constructor(public translate: TranslateService, private bidirectionalService: BidirectionalService) {
+    constructor(public translate: TranslateService, private readonly bidirectionalService: BidirectionalService) {
         translate.addLangs(this.enabledLocales);
         translate.setDefaultLang('EN');
         this.selectedLanguage = this.enabledLocales[0];
