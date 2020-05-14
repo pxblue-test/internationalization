@@ -3,44 +3,39 @@
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="onMenuClicked()" style="margin-left:-4px; margin-right: 12px">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-    <div>{{langObject.I18N}}</div>
+    <div>{{'I18N' | translate}}</div>
     <div fxFlex style="margin:auto;"></div>
   </mat-toolbar>
-  
-  
-  <!-- secondary toolbar -->
+
   <mat-toolbar class="secondary-toolbar">
     <mat-form-field>
-    <mat-select (ngModelChange)="onLanguageSelection($event)" [(ngModel)]="selectedLanguage">
-      <mat-option *ngFor="let lang of langObject.DROPDOWN_LANGS; let i = index" [value]="languages[i]">
-        {{lang}}
-      </mat-option>
-    </mat-select>
+        <mat-select #langeSelect (ngModelChange)="translate.use(langeSelect.value)" [(ngModel)]="selectedLanguage">
+            <mat-option *ngFor="let lang of languages; let i = index" [value]="languages[i]">
+                {{ 'LANGUAGES.'+lang | translate }}
+            </mat-option>
+        </mat-select>
   </mat-form-field>
    <button  mat-raised-button color="primary" style="margin: 20px;" >
-     <mat-icon>shopping_cart</mat-icon> {{langObject.ADD_TO_CART}}
+     <mat-icon>shopping_cart</mat-icon> {{'ADD_TO_CART' | translate}}
    </button>
-    <div fxFlex style="margin:auto;"></div>
   </mat-toolbar>
-  
-  <!-- list of items -->
+
   <mat-nav-list>
-    <mat-list-item *ngFor="let item of langObject.FRUIT_LIST; let i = index">
-      <mat-checkbox mat-list-icon [checked]="isSelected(i)" (change)="onSelected(i)" color="primary"></mat-checkbox>
+    <mat-list-item *ngFor="let fruit of fruits; let i = index" (click)="toggleFruit(fruit)">
+      <mat-checkbox mat-list-icon [checked]="selectedFruits.has(fruit)" (change)="toggleFruit(fruit)" color="primary"></mat-checkbox>
         <div mat-line>
-        {{item}}
+        {{ 'FRUITS.'+fruit | translate }}
       </div>
       <div mat-line class="list">
-        {{langObject.MORE_INFO}}
+        {{'MORE_INFO' | translate}}
       </div>
       <mat-icon class="icon">navigate_next</mat-icon>
     </mat-list-item>
   </mat-nav-list>
-  
-  
-  <!-- bottomsheet -->
-  <footer [class.active]="selectedItems.length>0" class="mat-simple-snackbar" fxLayout="row">
-    <p style=""> {{selectedItems.length}} {{langObject.ITEMS}}</p>
+
+
+  <footer [class.active]="selectedFruits.size > 0" class="mat-simple-snackbar" fxLayout="row">
+    <p style=""> {{selectedFruits.size}} {{'ITEMS' | translate}}</p>
     <div class="icon">
       <button mat-icon-button (click)="cancelItems()">
           <mat-icon>cancel</mat-icon>
@@ -50,4 +45,3 @@
         </button>
     </div>
   </footer>
-  

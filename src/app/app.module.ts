@@ -6,10 +6,8 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import {ListSelectionExample} from './list/list.component';
 
-import { LanguageTranslateService } from './shared/language-translate.service';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
@@ -20,9 +18,12 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {LanguageLoader} from "./language-loader";
+import {ListComponent} from "./list/list.component";
 
 @NgModule({
-  declarations: [AppComponent, ListSelectionExample],
+  declarations: [AppComponent, ListComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -39,9 +40,15 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+
+      TranslateModule.forRoot({
+          loader: {provide: TranslateLoader, useClass: LanguageLoader},
+
+      defaultLanguage: 'EN'
+
+      })
   ],
-  providers: [LanguageTranslateService],
   bootstrap: [AppComponent]
 })
 
