@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { LanguageLoader } from './language-loader';
+import { LanguageLoaderService } from './services/language-loader.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -37,7 +37,7 @@ import { LanguageLoader } from './language-loader';
         MatSidenavModule,
         MatToolbarModule,
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: LanguageLoader },
+            loader: { provide: TranslateLoader, useClass: LanguageLoaderService },
             defaultLanguage: 'EN',
         }),
     ],
