@@ -10,13 +10,10 @@ import { arabic } from './i18n/arabic';
 import { french } from './i18n/french';
 
 export class LanguageLoader implements TranslateLoader {
-    getTranslation(lang: string): Observable<SampleTranslation> {
+    getTranslation(lang: keyof SampleTranslation['LANGUAGES']): Observable<SampleTranslation> {
         switch (lang) {
             case 'EN': {
                 return of(english);
-            }
-            case 'ES': {
-                return of(spanish);
             }
             case 'ES': {
                 return of(spanish);
