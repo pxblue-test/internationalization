@@ -69,17 +69,15 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <mat-list-item *ngFor="let fruit of fruits; let i = index" (click)="toggleFruit(fruit)">
-                <mat-checkbox
-                    mat-list-icon
+            <pxb-info-list-item *ngFor="let fruit of fruits" (click)="toggleFruit(fruit)" [chevron]="true">
+                <mat-checkbox icon
                     [checked]="selectedFruits.has(fruit)"
                     (change)="toggleFruit(fruit)"
                     color="primary"
                 ></mat-checkbox>
-                <div mat-line>{{ 'FRUITS.' + fruit | translate }}</div>
-                <div mat-line class="list">{{ 'MORE_INFO' | translate }}</div>
-                <mat-icon class="icon">navigate_next</mat-icon>
-            </mat-list-item>
+                <div title>{{ 'FRUITS.' + fruit | translate }}</div>
+                <div subtitle class="list">{{ 'MORE_INFO' | translate }}</div>
+            </pxb-info-list-item>
         </mat-nav-list>
 
         <footer [class.active]="selectedFruits.size > 0" class="mat-simple-snackbar" fxLayout="row">
