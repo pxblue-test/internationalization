@@ -1,26 +1,43 @@
-import { Component} from '@angular/core';
-import { LanguageTranslateService } from './shared/language-translate.service';
-import { BaseComponent } from './shared/base.component';
+import { Component } from '@angular/core';
+import { TranslateService, TranslationChangeEvent } from '@ngx-translate/core';
+import { SampleTranslation } from './i18n/sample-translation';
+import { english } from './i18n/english';
+import { BidirectionalService } from './services/bidirectional.service';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
 })
-export class AppComponent extends BaseComponent{
-  open = false; // is the nav menu open
-  userMenu = false; // toggles menu mode on mobile
-  menuIcons = [ 'home', 'folder', 'report', 'settings', 'help' ];
+export class AppComponent {
+    open = false;
+    enabledLocales: Array<keyof SampleTranslation['LANGUAGES']> = ['EN', 'ES', 'FR', 'DE', 'PT', 'ZH', 'AR'];
+    selectedLanguage: string;
+    selectedFruits = new Set<string>();
+    fruits = Object.keys(english.FRUITS);
 
-  constructor(
-    public languageTranslateService:LanguageTranslateService
-  ) {
-      super(languageTranslateService);
-  }
+    constructor(public translate: TranslateService, private readonly bidirectionalService: BidirectionalService) {
+        translate.addLangs(this.enabledLocales);
+        translate.setDefaultLang('EN');
+        this.selectedLanguage = this.enabledLocales[0];
+        this.listenForLanguageChanges();
+    }
 
-  toggleMenu(){
-    this.open = !this.open;
-  }
+    toggleMenu(): void {
+        this.open = !this.open;
+    }
 
+    toggleFruit(fruit: string): void {
+        this.selectedFruits.has(fruit) ? this.selectedFruits.delete(fruit) : this.selectedFruits.add(fruit);
+    }
+
+    cancelItems(): void {
+        this.selectedFruits.clear();
+    }
+
+    listenForLanguageChanges(): void {
+        this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
+            this.bidirectionalService.changeDirectionality(event.lang);
+        });
+    }
 }

@@ -1,104 +1,37 @@
-import { TestBed, async } from '@angular/core/testing';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { LayoutModule } from "@angular/cdk/layout";
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AppComponent } from './app.component';
-import {
-  MatBottomSheetModule,
-  MatButtonModule,
-  MatCheckboxModule,
-  MatExpansionModule,
-  MatIconModule,
-  MatListModule,
-  MatMenuModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatToolbarModule
-} from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
-import { LanguageTranslateService } from './shared/language-translate.service';
-import { HttpClientModule } from '@angular/common/http';
-
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {AppModule} from "./app.module";
 
 describe('AppComponent', () => {
-  let service;
-  let fixture;
-  let component;
+    let fixture: ComponentFixture<AppComponent>;
+    let component: AppComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        // BaseComponent
-      ],
-      imports: [
-        BrowserAnimationsModule,
-        BrowserModule,
-        FlexLayoutModule,
-        FormsModule,
-        LayoutModule,
-        MatBottomSheetModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatExpansionModule,
-        MatIconModule,
-        MatListModule,
-        MatMenuModule,
-        MatSelectModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        HttpClientModule,
-        ReactiveFormsModule
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [LanguageTranslateService]
-    }).compileComponents();
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [AppModule]
+        }).compileComponents();
 
-    service = TestBed.get(LanguageTranslateService);
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.debugElement.componentInstance;
-  }));
+        fixture = TestBed.createComponent(AppComponent);
+        component = fixture.debugElement.componentInstance;
+    }));
 
-  it('should create the app', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create the app', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
 
-  it('component has menu icons array of length 5', () => {
-    expect(component.menuIcons.length).toEqual(5);
-  });
+    it(`should load english by default`, () => {
+        fixture.detectChanges();
+        const i18n = fixture.nativeElement.querySelector('#i18n').innerHTML;
+        component.translate.use('SE');
+        expect(i18n).toEqual('Internationalization');
+    });
 
-  it('component "userMenu" property is false', () => {
-    expect(component.userMenu).toBeFalsy();
-  });
-
-  it('component "open" property is false', () => {
-    expect(component.open).toBeFalsy();
-  });
-
-  it('toggleMenu make "open" to true', () => {
-    component.toggleMenu();
-    expect(component.open).toBeTruthy();
-  });
-  
-  // for add to cart text 
-  it(`should get the German language data when the language set to german'`, () => {
-    const langObject = service.getLangObject('ge');
-    expect(langObject.ADD_TO_CART).toEqual('In den Einkaufswagen');
-  });
-
-  //for delete text
-  it(`should get the spanish language data when the language set to spanish'`, () => {
-    const langObject = service.getLangObject('sp');
-    expect(langObject.ITEMS).toEqual('Artículos');
-  });
-
-  // for title
-  it(`should get the spanish language data when the language set to spanish'`, () => {
-    const langObject = service.getLangObject('en');
-    expect(langObject.I18N).toEqual('Internationalization');
-  });
+    it(`should load spanish on language change`, () => {
+        fixture.detectChanges();
+        component.translate.use('ES');
+        fixture.detectChanges();
+        const i18n = fixture.nativeElement.querySelector('#i18n').innerHTML;
+        expect(i18n).toEqual('Internacionalización');
+    });
 });
