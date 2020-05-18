@@ -70,11 +70,7 @@
 
         <mat-nav-list>
             <pxb-info-list-item *ngFor="let fruit of fruits" (click)="toggleFruit(fruit)" [chevron]="true">
-                <mat-checkbox icon
-                    [checked]="selectedFruits.has(fruit)"
-                    (change)="toggleFruit(fruit)"
-                    color="primary"
-                ></mat-checkbox>
+                <mat-checkbox icon [checked]="selectedFruits.has(fruit)" color="primary"></mat-checkbox>
                 <div title>{{ 'FRUITS.' + fruit | translate }}</div>
                 <div subtitle class="list">{{ 'MORE_INFO' | translate }}</div>
             </pxb-info-list-item>

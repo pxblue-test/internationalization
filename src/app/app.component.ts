@@ -27,8 +27,10 @@ export class AppComponent {
         this.open = !this.open;
     }
 
-    toggleFruit(fruit: string): void {
+    // Return false to stop event propagation
+    toggleFruit(fruit: string): boolean {
         this.selectedFruits.has(fruit) ? this.selectedFruits.delete(fruit) : this.selectedFruits.add(fruit);
+        return false;
     }
 
     cancelItems(): void {
